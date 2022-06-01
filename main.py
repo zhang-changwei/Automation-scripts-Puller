@@ -5,7 +5,7 @@ import json
 
 def pullRemoteScripts(url):
     try:
-        response = urllib.request.urlopen(url, timeout=1.5)
+        response = urllib.request.urlopen(url, timeout=10)
         return True, response
     except urllib.error.HTTPError as e:
         print(url, '\n', e.code)
@@ -13,7 +13,7 @@ def pullRemoteScripts(url):
 
 def getRemoteInfos(url = r'https://raw.githubusercontent.com/zhang-changwei/Automation-scripts-for-Aegisub/main/index.json'):
     try:
-        response = urllib.request.urlopen(url, timeout=1.5)
+        response = urllib.request.urlopen(url, timeout=10)
         remote:dict = json.load(response)
         return remote
     except:
